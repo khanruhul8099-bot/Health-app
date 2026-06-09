@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ehsaas Health Care</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+
+
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+    <header class="bg-white shadow-sm sticky top-0 z-50 px-4 py-3 flex justify-between items-center">
+        <h1 class="text-xl font-bold text-teal-600 tracking-wide">Ehsaas Health Care</h1>
+        <div class="relative">
+            <span class="text-gray-600 text-lg">🛒</span>
+            <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-1.5 py-0.5 font-bold">0</span>
+        </div>
+    </header>
+    <div class="m-4 p-6 bg-gradient-to-r from-teal-500 to-emerald-600 rounded-2xl text-white shadow-md">
+        <h2 class="text-xl font-bold mb-1">Pure & Natural Wellness</h2>
+        <p class="text-xs opacity-90 mb-4">Aapki sehat, hamari zimmedari.</p>
+        <button class="bg-white text-teal-700 text-xs font-semibold px-4 py-2 rounded-full shadow-sm">Shop Now</button>
+    </div>
+    <main class="px-4 grid grid-cols-2 gap-4 pb-24">
+        <div class="bg-white rounded-xl p-3 shadow-sm border border-gray-100 flex flex-col justify-between">
+            <div>
+                <div class="bg-gray-100 h-28 rounded-lg mb-2 flex items-center justify-center text-gray-400 text-xs">Product Image</div>
+                <h4 class="text-sm font-semibold text-gray-800">Premium Ashwagandha</h4>
+            </div>
+            <div class="mt-3 flex items-center justify-between">
+                <span class="text-sm font-bold text-teal-600">₹499</span>
+                <button onclick="addToCart()" class="bg-teal-600 text-white text-xs px-2.5 py-1.5 rounded-lg font-medium">Add</button>
+            </div>
+        </div>
+        <div class="bg-white rounded-xl p-3 shadow-sm border border-gray-100 flex flex-col justify-between">
+            <div>
+                <div class="bg-gray-100 h-28 rounded-lg mb-2 flex items-center justify-center text-gray-400 text-xs">Product Image</div>
+                <h4 class="text-sm font-semibold text-gray-800">Aloe Vera Gel</h4>
+            </div>
+            <div class="mt-3 flex items-center justify-between">
+                <span class="text-sm font-bold text-teal-600">₹299</span>
+                <button onclick="addToCart()" class="bg-teal-600 text-white text-xs px-2.5 py-1.5 rounded-lg font-medium">Add</button>
+            </div>
+        </div>
+    </main>
+    <script>
+        let count = 0;
+        function addToCart() {
+            count++;
+            document.getElementById('cart-count').innerText = count;
+        }
+    </script>
+</body>
+</html>

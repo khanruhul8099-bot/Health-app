@@ -1,0 +1,6 @@
+{
+  "appId": "com.ehsaas.healthapp",
+  "appName": "Health App",
+  "webDir": "www",
+  "bundledWebRuntime": false
+}
