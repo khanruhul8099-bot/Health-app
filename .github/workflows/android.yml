@@ -22,19 +22,25 @@ jobs:
     - name: Install Cordova & Build Android Package
       run: |
         npm install -g cordova
-        # Creating clean cordova project
+        # Creating a clean cordova project
         cordova create build-android com.ehsaas.health HealthApp
         cd build-android
         cordova platform add android
         
-        # Copying all files from your main repository folder into Cordova's www
+        # Cordova ki default automatic files ko pehle saaf (delete) karein
+        rm -rf www/*
+        
+        # Ab aapki asli source code files ko Cordova ke www folder mein force-copy karein
         cd ..
         find . -maxdepth 1 -not -name 'build-android' -not -name '.git' -not -name '.github' -not -name '.' -exec cp -r {} build-android/www/ \;
         
-        # Clean heavy node_modules inside www to keep apk light
+        # Heavy node_modules ko hatayein taaki apk halka rahe
         rm -rf build-android/www/node_modules build-android/www/build-android
         
-        # Final Build
+        # Final Verification Check: Dekhein ki aapki index.html sahi jagah pahunchi ya nahi
+        ls -la build-android/www/
+        
+        # Build Process
         cd build-android
         cordova build android --debug
 
