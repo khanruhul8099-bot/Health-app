@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.ehsaas.health" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>HealthApp</name>
+    <description>Ehsaas Health Care Application</description>
+    <author email="dev@ehsaas.com" href="http://ehsaas.com">Ehsaas Team</author>
+    <content src="index.html" />
+    
+    <!-- Permissions and Fixes for ERR_CONNECTION_REFUSED -->
+    <access origin="*" />
+    <allow-navigation href="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <preference name="KeepRunning" value="true" />
+    
+    <platform name="android">
+        <allow-intent href="market:*" />
+    </platform>
+</widget>
