@@ -5,14 +5,24 @@
     <author email="dev@ehsaas.com" href="http://ehsaas.com">Ehsaas Team</author>
     <content src="index.html" />
     
-    <!-- Permissions and Fixes for ERR_CONNECTION_REFUSED -->
+    <!-- Complete Network & Localhost Permissions -->
     <access origin="*" />
     <allow-navigation href="*" />
+    <allow-navigation href="http://localhost/*" />
+    <allow-navigation href="https://localhost/*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
+    
+    <!-- Android Specific Preferences to Fix Connection Refused -->
     <preference name="KeepRunning" value="true" />
+    <preference name="Scheme" value="https" />
+    <preference name="Hostname" value="localhost" />
+    <preference name="AndroidInsecureFileModeEnabled" value="true" />
     
     <platform name="android">
         <allow-intent href="market:*" />
+        <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
+            <application android:usesCleartextTraffic="true" />
+        </edit-config>
     </platform>
 </widget>
