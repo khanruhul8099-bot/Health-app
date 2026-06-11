@@ -19,16 +19,36 @@ jobs:
       with:
         node-version: '20'
 
-    - name: Install Cordova & Build Android Package
+    - name: Setup Cordova Project & Inject Config
       run: |
         npm install -g cordova
+        # Create a clean cordova project
         cordova create build-android com.ehsaas.health HealthApp
         cd build-android
+        
+        # Add Android Platform
         cordova platform add android
+        
+        # Install Crucial Plugins to avoid ERR_CONNECTION_REFUSED
+        cordova plugin add cordova-plugin-whitelist || true
+        
+        # Clear default www and copy everything from root repository
         rm -rf www/*
         cd ..
         find . -maxdepth 1 -not -name 'build-android' -not -name '.git' -not -name '.github' -not -name '.' -exec cp -r {} build-android/www/ \;
-        rm -rf build-android/www/node_modules build-android/www/build-android
+        
+        # Replace default config.xml with our root config.xml
+        if [ -f config.xml ]; then
+          cp config.xml build-android/config.xml
+        fi
+        
+        # Handle custom logo icon if exists in root
+        if [ -f icon.png ]; then
+          mkdir -p build-android/res/icon/android
+          cp icon.png build-android/res/icon/android/icon.png
+        fi
+        
+        # Build the final APK
         cd build-android
         cordova build android --debug
 
