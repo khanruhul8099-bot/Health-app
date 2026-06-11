@@ -1,6 +1,3 @@
-{
-  "appId": "com.ehsaas.healthapp",
-  "appName": "Health App",
-  "webDir": "www",
-  "bundledWebRuntime": false
-}
+<access origin="*" />
+<allow-navigation href="*" />
+<preference name="KeepRunning" value="true" />
