@@ -1,11 +1,15 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.ehsaas.health" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>HealthApp</name>
+    <name>Ehsaas Health</name>
     <description>Ehsaas Health Care Application</description>
     <author email="dev@ehsaas.com" href="http://ehsaas.com">Ehsaas Team</author>
+    
     <content src="index.html" />
     
-    <!-- Complete Network & Localhost Permissions -->
+    <!-- App Icon Setup -->
+    <icon src="icon.png" />
+    
+    <!-- Crucial Security & Whitelist Overrides -->
     <access origin="*" />
     <allow-navigation href="*" />
     <allow-navigation href="http://localhost/*" />
@@ -13,16 +17,12 @@
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     
-    <!-- Android Specific Preferences to Fix Connection Refused -->
     <preference name="KeepRunning" value="true" />
-    <preference name="Scheme" value="https" />
+    <preference name="Scheme" value="http" />
     <preference name="Hostname" value="localhost" />
-    <preference name="AndroidInsecureFileModeEnabled" value="true" />
     
     <platform name="android">
         <allow-intent href="market:*" />
-        <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
-            <application android:usesCleartextTraffic="true" />
-        </edit-config>
+        <icon density="mdpi" src="res/icon/android/icon.png" />
     </platform>
 </widget>
