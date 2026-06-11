@@ -6,23 +6,18 @@
     
     <content src="index.html" />
     
-    <!-- App Icon Setup -->
-    <icon src="icon.png" />
+    <!-- App Icon Definition -->
+    <icon src="www/icon.png" />
     
-    <!-- Crucial Security & Whitelist Overrides -->
+    <!-- Global Permissions to solve ERR_CONNECTION_REFUSED -->
     <access origin="*" />
     <allow-navigation href="*" />
-    <allow-navigation href="http://localhost/*" />
-    <allow-navigation href="https://localhost/*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     
     <preference name="KeepRunning" value="true" />
-    <preference name="Scheme" value="http" />
-    <preference name="Hostname" value="localhost" />
     
     <platform name="android">
         <allow-intent href="market:*" />
-        <icon density="mdpi" src="res/icon/android/icon.png" />
     </platform>
 </widget>
